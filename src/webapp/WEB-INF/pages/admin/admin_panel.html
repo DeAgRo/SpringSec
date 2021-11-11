@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+</head>
+<body>
+<h1 align="center">User list</h1>
+<div th:align="center" th:each="u:${allUsers}">
+    <br>
+    <a th:href="@{/admin/{id}(id=${u.getId()})}" th:text="${u.getName()}">user</a>
+    <br/>
+    <a th:href="@{/admin/{id}/update(id=${u.getId()})}">Update</a>
+    <form th:method="DELETE" th:action="@{/admin/{id}(id=${u.getId()})}">
+        <input type="submit" value="Delete"/>
+    </form>
+
+</div>
+<div th:align="center"><a href="admin/new">Create new user</a></div>
+<div th:align="bottom">
+    <form th:method="GET" th:action="@{/logout}">
+        <input type="submit" value="exit">
+    </form>
+</div>
+</body>
+</html>

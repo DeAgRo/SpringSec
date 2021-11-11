@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+</head>
+<body>
+<div align="center">
+    <p th:text="${userInfo.getId()}">userId</p>
+    <p th:text="${userInfo.getName()}">userName</p>
+    <p th:text="${userInfo.getPassword()}">userPassword</p>
+</div>
+<div th:align="bottom">
+    <form th:method="GET" th:action="@{/logout}">
+        <input type="submit" value="exit">
+    </form>
+</div>
+</body>
+</html>
